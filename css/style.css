@@ -1,0 +1,196 @@
+/* Base Styles & Variables */
+:root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #121212;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent: #3d7fff;
+    --transition: all 0.3s ease;
+  }
+  
+  /* Reset & Global Styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Layout */
+  section {
+    padding: 5rem 7%;
+  }
+  
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 7%;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  
+  nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  nav a:hover {
+    color: var(--accent);
+  }
+  
+  .social {
+    position: fixed;
+    right: 7%;
+    top: 1.5rem;
+  }
+  
+  /* Header */
+  header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 7%;
+  }
+  
+  .lead {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+  }
+  
+  /* Project Grid */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .project {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 4px;
+    transition: var(--transition);
+  }
+  
+  .project:hover {
+    transform: translateY(-5px);
+  }
+  
+  .tags {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  /* Process Grid */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .process-item {
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+  }
+  
+  /* Contact Section */
+  .contact-info {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .contact-info a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  
+  .contact-info a:hover {
+    opacity: 0.8;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 2rem 7%;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    section {
+      padding: 3rem 5%;
+    }
+    
+    nav {
+      padding: 1rem 5%;
+    }
+    
+    .social {
+      right: 5%;
+    }
+    
+    .project-grid,
+    .process-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  section {
+    animation: fadeIn 0.6s ease-out;
+  }
