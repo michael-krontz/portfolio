@@ -3,12 +3,18 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michael Krontz • UX Designer</title>
+    <title>Michael Krontz • Product Designer</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <nav>
         <ul>
+            <li class="logo"><span>MK</span></li>
             <li><a href="#work">Work</a></li>
             <li><a href="#process">Process</a></li>
             <li><a href="#about">About</a></li>
@@ -21,65 +27,136 @@
     </nav>
 
     <header>
-        <h1>Michael Krontz</h1>
-        <p class="lead">UX Designer crafting intuitive digital experiences through research-driven solutions</p>
+        <div class="header-content">
+            <div class="name-logo">
+                <h1>Michael Krontz</h1>
+            </div>
+            <p class="lead">Product Designer with 18+ years crafting digital experiences for Fortune 500s and startups alike.</p>
+        </div>
     </header>
 
     <section id="work">
         <h2>Selected Work</h2>
         <div class="project-grid">
-            <article class="project">
-                <h3>Stanley Black + Decker AR Experience</h3>
-                <p>Reimagining product comparison through augmented reality, enabling retailers to showcase tape measure features through interactive 3D visualization.</p>
+        <article class="project" data-project="freestyle">
+            <div class="project-thumb">
+                <img src="img/projects/freestyle/freestyle-1.jpg" alt="Coca-Cola Freestyle Interface">
+            </div>
+            <h3>Coca-Cola Freestyle</h3>
+            <p>In a top secret room at The Coca-Cola Company, a revolutionary machine was built. All it needed was an interface to unlock more beverage combinations than the world had ever seen.</p>
+            <span class="tags">UX Design • User Testing • Innovation</span>
+        </article>
+
+            <article class="project" data-project="knowhim">
+                <div class="project-thumb">
+                    <img src="img/projects/knowhim/knowhim-1.png" alt="Know Him Bible Trivia">
+                </div>
+                <h3>Know Him: Bible Trivia</h3>
+                <p>A reverent journey through the Gospels transformed into an engaging trivia experience. Level up to unlock fascinating discoveries about Jesus's life. Now available on the iOS App Store.</p>
+                <span class="tags">Mobile UX • Game Design • User Research</span>
+            </article>
+
+            <article class="project" data-project="toasty">
+                <div class="project-thumb">
+                    <img src="img/projects/toasty/toasty-1.jpg" alt="Toasty Automated Tanning System">
+                </div>
+                <h3>Toasty Automated Tanning System</h3>
+                <p>An innovative chain of tanning salons needed a way to expand beyond business hours. The solution? A fully automated system that streamlined their after-hours operations.</p>
+                <span class="tags">Product Design • IoT • Service Design</span>
+            </article>
+
+            <article class="project" data-project="stanley">
+                <div class="project-thumb">
+                    <img src="img/projects/stanley/sbd1.jpg" alt="Stanley Black + Decker XR Experience">
+                </div>
+                <h3>Stanley Black + Decker XR Experience</h3>
+                <p>When Stanley Black + Decker sought to improve their retail experience, I designed an augmented reality app that brings their tools to life.</p>
                 <span class="tags">XR Design • User Interface • Product Strategy</span>
             </article>
-
-            <article class="project">
-                <h3>Know Wake</h3>
-                <p>Designing an intuitive marine navigation system that empowers boaters to share real-time information about waterway conditions and points of interest.</p>
-                <span class="tags">UX Design • Information Architecture • User Research</span>
-            </article>
-
-            <article class="project">
-                <h3>GE Renewables AR Experience</h3>
-                <p>Creating an AR solution that revolutionizes wind turbine maintenance by enabling technicians to visualize and locate components efficiently.</p>
-                <span class="tags">XR Design • Technical UX • Service Design</span>
-            </article>
-
-            <article class="project">
-                <h3>Coca-Cola Freestyle</h3>
-                <p>Leading the user experience design for a revolutionary beverage dispensing system, focusing on intuitive interaction patterns and extensive user testing.</p>
-                <span class="tags">UX Design • User Testing • Interface Design</span>
-            </article>
         </div>
     </section>
 
-    <section id="process">
-        <h2>Design Approach</h2>
-        <div class="process-grid">
-            <div class="process-item">
-                <h3>Research & Discovery</h3>
-                <p>Conducting in-depth user research and stakeholder interviews to uncover core needs and opportunities for innovation.</p>
+<section id="process">
+    <h2>My Process</h2>
+    <div class="process-grid">
+        <div class="process-item">
+            <div class="process-icon">
+                <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M21,9L17,5V8H10V10H17V13M7,11L3,15L7,19V16H14V14H7V11Z"/>
+                </svg>
             </div>
-            <div class="process-item">
-                <h3>Strategy & Design</h3>
-                <p>Translating research insights into intuitive workflows and high-fidelity prototypes through iterative design.</p>
+            <h3>DISCOVERY + RESEARCH</h3>
+            <p>Deep diving into user behavior, competitive analysis, and stakeholder interviews to define clear product opportunities and user needs.</p>
+        </div>
+        <div class="process-item">
+            <div class="process-icon">
+                <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
+                </svg>
             </div>
-            <div class="process-item">
-                <h3>Testing & Refinement</h3>
-                <p>Validating solutions through comprehensive user testing and data-driven optimization.</p>
+            <h3>DEFINE + IDEATE</h3>
+            <p>Transforming research insights into user flows and wireframes, exploring solutions through rapid ideation and technical feasibility assessment.</p>
+        </div>
+        <div class="process-item">
+            <div class="process-icon">
+                <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M10,2A2,2 0 0,1 12,4V8.5C12,8.5 14,8.25 14,9.25C14,9.25 16,9 16,10C16,10 18,9.75 18,10.75C18,10.75 20,10.5 20,11.5V15C20,16 17,21 17,22H9C9,22 7,15 4,13C4,13 3,7 8,12V4A2,2 0 0,1 10,2Z"/>
+                </svg>
             </div>
-            <div class="process-item">
-                <h3>Development & Implementation</h3>
-                <p>Collaborating with development teams to ensure design integrity and optimal user experience in the final product.</p>
+            <h3>PROTOTYPE + BUILD</h3>
+            <p>Creating high-fidelity prototypes and building native mobile applications, ensuring seamless user experiences across platforms.</p>
+        </div>
+        <div class="process-item">
+            <div class="process-icon">
+                <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M14.6,16.6L19.2,12L14.6,7.4L16,6L22,12L16,18L14.6,16.6M9.4,16.6L4.8,12L9.4,7.4L8,6L2,12L8,18L9.4,16.6Z"/>
+                </svg>
+            </div>
+            <h3>LAUNCH + ITERATE</h3>
+            <p>Taking products from design to app store launch, implementing analytics, and continuously improving based on user data and feedback.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="about-container">
+        <div class="profile-image">
+            <img src="img/me.png" alt="Michael Krontz">
+        </div>
+        <div class="about-content">
+            <p>Since 2007, I've been working with companies to create meaningful digital products and experiences. Currently, I'm the Lead UX Designer at Beck's Hybrids, where I work on seed production, finance, and precision agriculture software that helps farmers succeed.</p><p>My expertise spans product design, user experience, and emerging technologies, with a focus on user-centered solutions that drive business success. When I'm not designing, I'm busy raising six wonderful kids and exploring ways technology can create positive change in the world.</p>        
+            </div>
+    </div>
+</section>
+
+    <section id="more-work">
+        <h2>More Work</h2>
+        <div class="image-grid">
+            <div class="grid-image">
+                <img src="img/moreWork/1.jpg" alt="">
+            </div>
+            <div class="grid-image">
+                <img src="img/moreWork/2.jpg" alt="">
+            </div>
+            <div class="grid-image">
+                <img src="img/moreWork/3.jpg" alt="">
+            </div>
+            <div class="grid-image">
+                <img src="img/moreWork/4.jpg" alt="">
+            </div>
+            <div class="grid-image">
+                <img src="img/moreWork/5.jpg" alt="">
+            </div>
+            <div class="grid-image">
+                <img src="img/moreWork/6.jpg" alt="">
+            </div>
+            <div class="grid-image">
+                <img src="img/moreWork/7.png" alt="">
+            </div>
+            <div class="grid-image">
+                <img src="img/moreWork/8.jpg" alt="">
             </div>
         </div>
-    </section>
-
-    <section id="about">
-        <h2>About</h2>
-        <p>With over a decade of experience in UX design, I specialize in creating intuitive digital experiences that bridge user needs with business objectives. My background in communication design, combined with expertise in emerging technologies like AR/XR, enables me to craft innovative solutions across various platforms.</p>
-        <p>When not designing, I explore new technologies, contribute to the design community, and enjoy outdoor activities with my family.</p>
     </section>
 
     <section id="contact">
@@ -87,13 +164,19 @@
         <p>Looking to collaborate on meaningful projects? Let's connect.</p>
         <div class="contact-info">
             <a href="mailto:michaelkrontz@gmail.com">michaelkrontz@gmail.com</a>
-            <a href="tel:317.601.2289">317.601.2289</a>
         </div>
     </section>
 
     <footer>
-        <p>© 2024 Michael Krontz</p>
+        <p>© 2025 Michael Krontz</p>
     </footer>
+
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body"></div>
+        </div>
+    </div>
 
     <script src="js/main.js"></script>
 </body>

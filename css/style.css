@@ -30,9 +30,15 @@
   }
   
   h1 {
+    font-family: 'Roboto', sans-serif;
     font-size: 3.5rem;
     margin-bottom: 1rem;
-  }
+    letter-spacing: -0.05rem;
+    background: linear-gradient(90deg, var(--text-primary) 100%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeIn 0.8s ease-out;
+}
   
   h2 {
     font-size: 2rem;
@@ -40,12 +46,13 @@
   }
   
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-bottom: 1rem;
   }
   
   p {
     margin-bottom: 1.5rem;
+    font-size: 1.25rem;
   }
   
   /* Layout */
@@ -68,6 +75,7 @@
     display: flex;
     gap: 2rem;
     list-style: none;
+    align-items: center;
   }
   
   nav a {
@@ -101,42 +109,133 @@
     max-width: 600px;
   }
   
-  /* Project Grid */
-  .project-grid {
+/* Project Grid */
+.project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-  
-  .project {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    max-width: 1400px;
+}
+
+.project {
     background: var(--bg-secondary);
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 4px;
     transition: var(--transition);
-  }
-  
-  .project:hover {
-    transform: translateY(-5px);
-  }
-  
-  .tags {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-  }
-  
-  /* Process Grid */
-  .process-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-  }
-  
-  .process-item {
-    padding: 2rem;
-    background: var(--bg-secondary);
+}
+
+.project-thumb {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
     border-radius: 4px;
-  }
+}
+
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-thumb {
+        height: 400px; /* Adjusted for mobile */
+    }
+}
   
+/* Process Section Styling */
+#process {
+    background: #0a0a0a;
+    padding: 6rem 7%;
+}
+
+#process h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+#process h3 {
+    font-size: 1.3rem;
+}
+
+#process p {
+    font-size: 1.25rem;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.process-item {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: #232323;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.process-item:hover {
+    transform: translateY(-5px);
+}
+
+.process-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 2rem;
+    background: rgba(61, 127, 255, 0.1);
+    border-radius: 50%;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.process-icon svg {
+    width: 50px;
+    height: 50px;
+    color: white;
+}
+
+.process-item h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.process-item p {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #process {
+        padding: 4rem 5%;
+    }
+}
+
   /* Contact Section */
   .contact-info {
     display: flex;
@@ -194,3 +293,180 @@
   section {
     animation: fadeIn 0.6s ease-out;
   }
+
+  /* Add these modal styles to your existing CSS */
+.project {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1100;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    margin: 5% auto;
+    padding: 3rem;
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+    border-radius: 8px;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.close {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: var(--text-primary);
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal Content Styles */
+.modal-body {
+    margin-top: 1rem;
+}
+
+.modal-body img {
+    width: 100%;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+}
+
+.modal-body h2 {
+    margin-top: 0;
+}
+
+.modal-meta {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* Image Grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.grid-image {
+    aspect-ratio: 12/9;  /* Changed from 1/1 to 16/9 for rectangular shape */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.grid-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.grid-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Header logo styling */
+.header-content {
+    max-width: 1200px;
+}
+
+.name-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.logo {
+    margin-right: 2rem;
+}
+
+.logo span {
+    font-family: 'Protest Riot', sans-serif;
+    font-size: 4rem;
+    letter-spacing: -0.25em;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+.logo span:hover {
+    color: var(--accent);
+}
+
+/* About section styling */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-content {
+    flex: 1;
+}
+
+#about p {
+    font-size: 1.3rem;
+}
+
+.profile-image {
+    flex-shrink: 0;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+}
