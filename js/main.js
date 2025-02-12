@@ -1,8 +1,71 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Modal elements
     const modal = document.getElementById('project-modal');
     const modalBody = modal.querySelector('.modal-body');
     const closeBtn = modal.querySelector('.close');
+    let lastScrollPosition = window.pageYOffset;
+    const nav = document.querySelector('nav');
+    const scrollThreshold = 5;
 
+    // Navigation elements
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinksA = document.querySelectorAll('.nav-links a');
+    const social = document.querySelector('.social');
+
+    const handleScroll = () => {
+        if (window.innerWidth <= 768) {
+            const currentScrollPosition = window.pageYOffset;
+            
+            if (Math.abs(lastScrollPosition - currentScrollPosition) <= scrollThreshold)
+                return;
+            
+            if (currentScrollPosition > lastScrollPosition) {
+                nav.classList.add('nav-hidden');
+            } else {
+                nav.classList.remove('nav-hidden');
+            }
+            
+            lastScrollPosition = currentScrollPosition;
+        }
+    };
+
+    // Add these two event listeners along with your other event listeners
+    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            nav.classList.remove('nav-hidden');
+        }
+    });
+
+    // Create mobile logo div
+    const mobileLogo = document.createElement('div');
+    mobileLogo.className = 'mobile-logo';
+    mobileLogo.innerHTML = '<span>MK</span>';
+
+    // Function to handle mobile menu setup
+    const setupMobileMenu = () => {
+        if (window.innerWidth <= 768) {
+            // Insert logo at the beginning of nav-links if it's not already there
+            if (!navLinks.querySelector('.mobile-logo')) {
+                navLinks.insertBefore(mobileLogo, navLinks.firstChild);
+            }
+            navLinks.appendChild(social);
+        } else {
+            // Remove mobile logo and move social links back
+            const existingMobileLogo = navLinks.querySelector('.mobile-logo');
+            if (existingMobileLogo) {
+                existingMobileLogo.remove();
+            }
+            document.querySelector('nav').appendChild(social);
+        }
+    };
+
+    // Initial setup
+    setupMobileMenu();
+
+    // Project data for modal content
     const projectData = {
         freestyle: {
             title: 'Coca-Cola Freestyle',
@@ -12,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 
                 <h3>Project Overview</h3>
-                <p>In 2007, I was invited to Coca-Cola's headquarters in Atlanta to work on a top-secret project that would revolutionize beverage dispensing. Inside a secured development room, I encountered a prototype machine that would become the Coca-Cola Freestyle system - the first of their kind ever built.</p>
+                <p>In 2007, I was invited to Coca-Cola's headquarters in Atlanta to work on a top-secret project that would revolutionize beverage dispensing. Inside a secured development room, I encountered a prototype machine that would become the Coca-Cola Freestyle - the first of it's kind.</p>
                 <h3>The Challenge</h3>
                 <p>My task was to design an intuitive interface for an entirely new beverage experience. This meant creating UI designs for each Coca-Cola product and their various flavors, while maintaining strict brand guidelines across unprecedented combinations - there had never been an orange or strawberry Coke before. The challenge was to make these new flavor innovations feel familiar and authentically Coca-Cola.</p>
                 
@@ -79,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Project click handlers
     document.querySelectorAll('.project').forEach(project => {
         project.addEventListener('click', () => {
             const projectId = project.dataset.project;
@@ -92,6 +156,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Mobile menu handlers
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+
+    // Close menu when a link is clicked
+    navLinksA.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinks.contains(e.target) && !hamburger.contains(e.target) && navLinks.classList.contains('active')) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+
+    // Modal close handlers
     closeBtn.addEventListener('click', () => {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
@@ -110,4 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'auto';
         }
     });
+
+    // Handle resize events
+    window.addEventListener('resize', setupMobileMenu);
 });

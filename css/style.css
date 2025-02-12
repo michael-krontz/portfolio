@@ -6,30 +6,34 @@
     --text-secondary: #a0a0a0;
     --accent: #3d7fff;
     --transition: all 0.3s ease;
-  }
-  
-  /* Reset & Global Styles */
-  * {
+}
+
+/* Reset & Global Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-  }
-  
-  /* Typography */
-  h1, h2, h3, h4 {
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
     font-weight: 600;
     line-height: 1.2;
-  }
-  
-  h1 {
+}
+
+h1 {
     font-family: 'Roboto', sans-serif;
     font-size: 3.5rem;
     margin-bottom: 1rem;
@@ -39,76 +43,114 @@
     -webkit-text-fill-color: transparent;
     animation: fadeIn 0.8s ease-out;
 }
-  
-  h2 {
+
+h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-  }
-  
-  h3 {
+}
+
+h3 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
-  }
-  
-  p {
+}
+
+p {
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
-  }
-  
-  /* Layout */
-  section {
+}
+
+/* Layout */
+section {
     padding: 5rem 7%;
-  }
-  
-  /* Navigation */
-  nav {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Navigation */
+nav {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 1.5rem 7%;
+    padding: .5rem 7%;
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
-  }
-  
-  nav ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav ul {
     display: flex;
     gap: 2rem;
     list-style: none;
     align-items: center;
-  }
-  
-  nav a {
+    margin-left: 1rem;
+}
+
+nav a {
     color: var(--text-primary);
     text-decoration: none;
     transition: var(--transition);
-  }
-  
-  nav a:hover {
+}
+
+nav a:hover {
     color: var(--accent);
-  }
-  
-  .social {
-    position: fixed;
-    right: 7%;
-    top: 1.5rem;
-  }
-  
-  /* Header */
-  header {
+}
+
+.logo {
+    margin-right: 2rem;
+}
+
+.logo span {
+    font-family: 'Protest Riot', sans-serif;
+    font-size: 4rem;
+    letter-spacing: -0.25em;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+}
+
+.logo span:hover {
+    color: var(--accent);
+}
+
+.social {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: auto;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-primary);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Header */
+header {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0 7%;
-  }
-  
-  .lead {
+}
+
+.lead {
     font-size: 1.5rem;
     color: var(--text-secondary);
     max-width: 600px;
-  }
-  
+}
+
 /* Project Grid */
 .project-grid {
     display: grid;
@@ -122,6 +164,11 @@
     padding: 1.5rem;
     border-radius: 4px;
     transition: var(--transition);
+    cursor: pointer;
+}
+
+.project:hover {
+    transform: translateY(-5px);
 }
 
 .project-thumb {
@@ -138,17 +185,7 @@
     object-fit: cover;
 }
 
-@media (max-width: 768px) {
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-thumb {
-        height: 400px; /* Adjusted for mobile */
-    }
-}
-  
-/* Process Section Styling */
+/* Process Section */
 #process {
     background: #0a0a0a;
     padding: 6rem 7%;
@@ -220,90 +257,7 @@
     line-height: 1.6;
 }
 
-@media (max-width: 1024px) {
-    .process-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .process-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    #process {
-        padding: 4rem 5%;
-    }
-}
-
-  /* Contact Section */
-  .contact-info {
-    display: flex;
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-  
-  .contact-info a {
-    color: var(--accent);
-    text-decoration: none;
-    transition: var(--transition);
-  }
-  
-  .contact-info a:hover {
-    opacity: 0.8;
-  }
-  
-  /* Footer */
-  footer {
-    padding: 2rem 7%;
-    text-align: center;
-    color: var(--text-secondary);
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 2.5rem;
-    }
-    
-    section {
-      padding: 3rem 5%;
-    }
-    
-    nav {
-      padding: 1rem 5%;
-    }
-    
-    .social {
-      right: 5%;
-    }
-    
-    .project-grid,
-    .process-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  /* Animations */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  section {
-    animation: fadeIn 0.6s ease-out;
-  }
-
-  /* Add these modal styles to your existing CSS */
-.project {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.project:hover {
-    transform: translateY(-5px);
-}
-
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -341,18 +295,6 @@
     color: var(--text-primary);
 }
 
-@keyframes modalFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Modal Content Styles */
 .modal-body {
     margin-top: 1rem;
 }
@@ -381,7 +323,7 @@
 }
 
 .grid-image {
-    aspect-ratio: 12/9;  /* Changed from 1/1 to 16/9 for rectangular shape */
+    aspect-ratio: 12/9;
     border-radius: 4px;
     overflow: hidden;
 }
@@ -397,35 +339,7 @@
     transform: scale(1.05);
 }
 
-/* Header logo styling */
-.header-content {
-    max-width: 1200px;
-}
-
-.name-logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.logo {
-    margin-right: 2rem;
-}
-
-.logo span {
-    font-family: 'Protest Riot', sans-serif;
-    font-size: 4rem;
-    letter-spacing: -0.25em;
-    color: var(--text-primary);
-    transition: color 0.3s ease;
-}
-
-.logo span:hover {
-    color: var(--accent);
-}
-
-/* About section styling */
+/* About Section */
 .about-container {
     display: flex;
     align-items: center;
@@ -436,10 +350,6 @@
 
 .about-content {
     flex: 1;
-}
-
-#about p {
-    font-size: 1.3rem;
 }
 
 .profile-image {
@@ -457,16 +367,157 @@
     object-fit: cover;
 }
 
-/* Responsive adjustments */
+/* Contact Section */
+.contact-info {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.contact-info a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-info a:hover {
+    opacity: 0.8;
+}
+
+/* Footer */
+footer {
+    padding: 2rem 7%;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
-    .about-container {
-        flex-direction: column-reverse;
-        align-items: center;
-        gap: 2rem;
+    h1 { font-size: 2.5rem; }
+    
+    section { padding: 3rem 5%; }
+    
+    nav { 
+        padding: 1rem 5%; 
+        transition: transform 0.3s ease;
     }
 
+    nav.nav-hidden {
+        transform: translateY(-100%);
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+    
+    .close {
+        top: -0.5rem;
+        right: 0.5rem;
+    }
+
+    .hamburger { display: block; }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 100%;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        justify-content: flex-start;  /* Changed from center to flex-start */
+        align-items: center;
+        transition: right 0.3s ease;
+        padding: 4rem 2rem;
+        gap: 2rem;
+        overflow-y: auto;  /* Added for better mobile scrolling */
+    }
+    
+    .nav-links.active { right: 0; }
+
+    .nav-links .mobile-logo {
+        display: none;
+        margin-top: 3rem;  /* Added spacing below logo */
+        margin-right: 15px;
+    }
+
+    .nav-links.active .mobile-logo {
+        display: block;
+    }
+
+    .nav-links .mobile-logo span {
+        font-family: 'Protest Riot', sans-serif;
+        font-size: 4rem;
+        letter-spacing: -0.25em;
+        color: var(--text-primary);
+        transition: color 0.3s ease;
+    }
+
+    .nav-links .mobile-logo span:hover {
+        color: var(--accent);
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .social {
+        position: static;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem; 
+        margin-left: unset;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+    
+    .project-grid { grid-template-columns: 1fr; }
+    
+    .process-grid { grid-template-columns: 1fr; }
+    
+    .about-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
     .profile-image {
         width: 150px;
         height: 150px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1024px) {
+    .process-grid {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
