@@ -149,9 +149,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const projectContent = projectData[projectId];
             
             if (projectContent) {
-                modalBody.innerHTML = projectContent.description;
+                // First, just inject the text content
+                modalBody.innerHTML = projectContent.description.replace(/<img[^>]*>/g, '');
                 modal.style.display = 'block';
                 document.body.style.overflow = 'hidden';
+                
+                // Then, after a small delay, inject the images one by one
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = projectContent.description;
+                const images = tempDiv.getElementsByTagName('img');
+                
+                Array.from(images).forEach((img, index) => {
+                    setTimeout(() => {
+                        const imgElement = document.createElement('img');
+                        imgElement.src = img.src;
+                        imgElement.alt = img.alt;
+                        modalBody.appendChild(imgElement);
+                    }, index * 100);
+                });
             }
         });
     });
