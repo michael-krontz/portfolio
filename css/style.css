@@ -402,6 +402,19 @@ footer {
     h3 {padding-left: 1rem; padding-right: 1rem;}
     p {padding-left: 1rem; padding-right: 1rem; font-size: 1.1rem;}
 
+    .lead {
+        padding-left: 0;
+    }
+
+    .name-logo h1 {
+        padding-left: 0;
+    }
+
+    .modal-body img {
+        margin: unset;
+        padding-bottom: 0.5rem;
+    }
+
     span.tags {
         padding-left: 1rem;
     }
