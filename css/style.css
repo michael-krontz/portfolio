@@ -193,7 +193,7 @@ header {
 
 #process h2 {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 #process h3 {
@@ -389,13 +389,32 @@ footer {
     padding: 2rem 7%;
     text-align: center;
     color: var(--text-secondary);
+
+    p {
+        font-size: 1rem;
+    }
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
-    h1 { font-size: 2.5rem; }
-    
-    section { padding: 3rem 5%; }
+    h1 { font-size: 2.5rem; padding-left: 1rem;}
+    h2 {padding-left: 1rem;}
+    h3 {padding-left: 1rem; padding-right: 1rem;}
+    p {padding-left: 1rem; padding-right: 1rem; font-size: 1.1rem;}
+
+    span.tags {
+        padding-left: 1rem;
+    }
+
+    .contact-info a {
+        padding-left: 1rem;
+    }
+
+    section { padding: 3rem 0; }
+
+    .project {
+        padding: 0.5rem;
+    }
     
     nav { 
         padding: 1rem 5%; 
@@ -408,11 +427,13 @@ footer {
 
     .modal-content {
         padding: 1rem;
+        width: 100%;
+        margin: 0;
     }
     
     .close {
-        top: -0.5rem;
-        right: 0.5rem;
+        top: 0rem;
+        right: 1rem;
     }
 
     .hamburger { display: block; }
