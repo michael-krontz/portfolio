@@ -67,6 +67,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Project data for modal content
     const projectData = {
+        seediq: {
+            title: 'SeedIQ: AI-Powered Seed Selection Tool',
+            description: `
+                <h2>SeedIQ: AI-Powered Seed Selection Tool</h2>
+                <div class="modal-meta">
+                </div>
+                
+                <h3>Project Overview</h3>
+                <p>Beck's Hybrids needed a smarter way to help farmers choose the right seed for their specific conditions. SeedIQ is a data-driven recommendation tool that analyzes a farmer's crop type, management practices, location, and yield expectations to surface the products most likely to perform in their environment. The philosophy behind it: crop performance is driven by management, not chance.</p>
+                
+                <img src="img/projects/seediq/seediq-2.png" alt="SeedIQ Landing">
+                
+                <h3>My Role</h3>
+                <p>This was a cross-departmental initiative spanning technology, marketing, and business leadership. As UX lead I directed the design team through the full engagement, overseeing experience design, facilitating collaboration across departments, and keeping the work aligned with both user needs and business goals.</p>
+                
+                <h3>The Challenge</h3>
+                <p>The challenge wasn't just building a good interface. It was aligning multiple teams with different priorities around a shared outcome, then delivering something farmers would actually trust and use.</p>
+                
+                <img src="img/projects/seediq/seediq-3.png" alt="SeedIQ Yield Selection">
+                
+                <img src="img/projects/seediq/seediq-1.png" alt="SeedIQ Insights">
+                
+                <p><strong>My role:</strong> UX leadership, cross-departmental coordination, design direction and critique, stakeholder alignment.</p>
+                
+                <p><strong>Since launch:</strong> 19,000+ total runs, 4,100+ unique devices, peak single-day usage of 1,350 during national ad campaign launch.</p>
+            `
+        },
         freestyle: {
             title: 'Coca-Cola Freestyle',
             description: `
