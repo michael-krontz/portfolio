@@ -67,6 +67,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Project data for modal content
     const projectData = {
+        truecatholic: {
+            title: 'TrueCatholic AI',
+            description: `
+                <h2>TrueCatholic AI</h2>
+                <div class="modal-meta">
+                </div>
+
+                <h3>Project Overview</h3>
+                <p>A personal project I built in my spare time. As a Catholic father of six, I set out to build an AI that's spiritually safer for my own kids to use. One that wouldn't hedge on the faith or treat Catholic teaching as just one opinion among many.</p>
+
+
+                <img src="img/projects/truecatholic/truecatholic-1.png" alt="TrueCatholic AI App">
+
+                <h3>The Benchmark</h3>
+                <p>I started by building the Catholic Faithfulness Index, a benchmark that tests AI models on 50 Catholic doctrine questions. I tested 5 major models. Best score was a C+. They know the teaching, but their training prevents them from presenting it as true.</p>
+
+                <h3>The Product</h3>
+                <p>Then I built TrueCatholic AI. A 2,700-line doctrinal charter that transforms any major LLM into a faithful Catholic assistant. The same model that failed the benchmark now scores an A with zero doctrinal violations. Pastorally reviewed and called orthodox, with sound pastoral advice. Free to use, charter is public.</p>
+
+                <img src="img/projects/truecatholic/truecatholic-2.png" alt="TrueCatholic AI Chat - St. Joan of Arc">
+                <img src="img/projects/truecatholic/truecatholic-3.png" alt="Catholic Faith Index">
+
+                <p>truecatholicai.org<br>catholicfaithindex.com</p>
+            `
+        },
         seediq: {
             title: 'SeedIQ: AI-Powered Seed Selection Tool',
             description: `
