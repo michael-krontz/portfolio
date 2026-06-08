@@ -36,11 +36,9 @@ body.menu-open {
     /* Subtle dot grid */
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.2px, transparent 1.6px);
     background-size: 26px 26px;
-    /* Even coverage across the whole opening screen, soft fade only at the bottom edge */
-    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 78%, transparent 100%);
-    mask-image: linear-gradient(to bottom, #000 0%, #000 78%, transparent 100%);
+    /* DIAGNOSTIC: no mask, even dots everywhere */
     /* Overall strength; --pattern-fade is driven by scroll (1 at top -> 0 after one screen) */
-    opacity: calc(0.22 * var(--pattern-fade, 1));
+    opacity: calc(0.35 * var(--pattern-fade, 1));
     will-change: opacity;
 }
 
