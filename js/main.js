@@ -33,6 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add these two event listeners along with your other event listeners
     window.addEventListener('scroll', handleScroll);
 
+    // Fade the opening-screen background pattern out over the first viewport
+    let patternTicking = false;
+    const updatePatternFade = () => {
+        const fade = Math.max(0, 1 - window.pageYOffset / window.innerHeight);
+        document.documentElement.style.setProperty('--pattern-fade', fade.toFixed(3));
+        patternTicking = false;
+    };
+    window.addEventListener('scroll', () => {
+        if (!patternTicking) {
+            patternTicking = true;
+            requestAnimationFrame(updatePatternFade);
+        }
+    }, { passive: true });
+    updatePatternFade();
+
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768) {
             nav.classList.remove('nav-hidden');
