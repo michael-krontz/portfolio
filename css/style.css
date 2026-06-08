@@ -27,6 +27,27 @@ body.menu-open {
     overflow: hidden;
 }
 
+/* Faint opening-screen background pattern — fades out as you scroll */
+.bg-pattern {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    /* Subtle dot grid */
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.5) 1px, transparent 1.4px);
+    background-size: 26px 26px;
+    /* Strongest near the top, gently dissolving toward the bottom of the first screen */
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 18%, #000 0%, rgba(0, 0, 0, 0.35) 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse 90% 70% at 50% 18%, #000 0%, rgba(0, 0, 0, 0.35) 55%, transparent 100%);
+    /* Overall faintness; --pattern-fade is driven by scroll (1 at top -> 0 after one screen) */
+    opacity: calc(0.08 * var(--pattern-fade, 1));
+    will-change: opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg-pattern { transition: none; }
+}
+
 /* Typography */
 h1, h2, h3, h4 {
     font-weight: 600;
