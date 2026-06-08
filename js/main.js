@@ -36,8 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fade the opening-screen background pattern out over the first viewport
     let patternTicking = false;
     const updatePatternFade = () => {
-        const fade = Math.max(0, 1 - window.pageYOffset / window.innerHeight);
+        const y = window.pageYOffset;
+        const fade = Math.max(0, 1 - y / window.innerHeight);
         document.documentElement.style.setProperty('--pattern-fade', fade.toFixed(3));
+        // Solid nav backdrop only after leaving the hero
+        nav.classList.toggle('scrolled', y > 40);
         patternTicking = false;
     };
     window.addEventListener('scroll', () => {

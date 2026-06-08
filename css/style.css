@@ -34,11 +34,13 @@ body.menu-open {
     z-index: 0;
     pointer-events: none;
     /* Subtle dot grid */
-    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.2px, transparent 1.6px);
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.55) 1.1px, transparent 1.5px);
     background-size: 26px 26px;
-    /* DIAGNOSTIC: no mask, even dots everywhere */
+    /* Even coverage across the opening screen, soft fade only at the bottom edge */
+    -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 0%, #000 82%, transparent 100%);
     /* Overall strength; --pattern-fade is driven by scroll (1 at top -> 0 after one screen) */
-    opacity: calc(0.35 * var(--pattern-fade, 1));
+    opacity: calc(0.14 * var(--pattern-fade, 1));
     will-change: opacity;
 }
 
@@ -93,12 +95,19 @@ nav {
     top: 0;
     width: 100%;
     padding: .5rem 7%;
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(10px);
+    background: transparent;
+    backdrop-filter: none;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
     z-index: 1000;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+/* Once scrolled off the hero, give the nav its solid dark backdrop */
+nav.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
 }
 
 nav ul {
